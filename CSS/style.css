@@ -1,0 +1,380 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{ /*container för home.*/
+    display: grid;
+    min-height: 100vh;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    grid-template-columns:  1fr 15rem;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+
+    "navbar navbar"
+    "main sidebar"
+    "footer footer";
+} 
+
+
+main { /*container för home-main.*/
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: top;
+    flex-direction: column;
+    text-align: center;
+    margin: 1rem 0.5rem;
+    padding: .5rem;
+}
+
+header h1{
+    text-align: center;
+}
+
+nav {
+    grid-area: navbar;
+    background-color: rgb(151, 138, 138);
+    color: red;
+    padding: 0.1rem;
+}
+
+.meny {
+    border: 1px solid #000000;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+ 
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0.1rem;
+    margin: 1rem 2rem;
+}
+
+nav a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+#hemlogo{
+        margin-right:auto;
+        width: 7rem;
+}
+
+.meny:hover {
+    background-color: aliceblue;
+    border-style: solid;
+
+    
+}
+#activeLink {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    padding: .5rem;
+    border-radius: 1rem;
+    /* ändrade radius till 1rem så det överstämmer med meny border radius */
+}
+
+aside {
+    grid-area: sidebar;
+    margin: 1rem 0.5rem;
+    padding: 0.3rem;
+}
+
+aside h3 {
+    text-align: center;
+}
+
+
+
+.container2{ /*container för omoss.*/
+    display: grid;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows:  auto 1fr auto;
+    grid-template-areas: 
+
+    "navbar "
+    "main "
+    "section "
+    "footer ";
+}
+
+#main2{ /*container för omoss-main.*/
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;/*Ändra från center till space-between*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 1rem 0.5rem;
+    padding: .5rem;
+}
+
+.container3{ /*container för kontakta oss.*/
+    display: grid;
+    min-height: 100vh;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    grid-template-columns:  1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+
+    "navbar"  
+    "main"
+    "footer";
+}
+
+#main3{ /*container för kontakt-main.*/
+    grid-area: main;
+    display: grid;
+    max-width: 100vw;
+    overflow-x: hidden;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    margin: 1% 0.5%;
+    padding: .1%;
+    word-wrap: break-word;
+}
+
+
+.kontaktinfo-article {
+    border: 0.2rem solid black;
+    max-width: 100vw;
+    border-radius: 1rem;
+}
+
+img.kontakt-bild{
+    margin: 5% auto;
+    width: 35%;
+    border-radius: 999rem;
+}
+
+article p {
+    margin: .3rem;
+}
+
+#kontor { 
+    grid-column: span  2;
+    width: 50%;
+    height: 90%;
+    margin: 5% auto;
+    grid-row: 3 / 3;
+
+} 
+
+/*Lade till placering på om oss med grid*/
+/* Designa den med flow-grid istället för template eller static */
+section.omoss {
+    grid-area: section;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border: 3px solid black;
+}
+
+.omoss article {
+    border: 3px dashed black; 
+    margin: .5rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dessa lades till */
+
+#Herobild{
+    width: 80%;
+}
+
+.ibild{
+    width: 80%;
+}
+
+figcaption {
+    font-size: 1.1em;
+    padding: 1em;
+    font-weight: 700;
+}
+
+figure {
+    display: flex;
+    flex: 1 1 40%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+footer {
+    grid-area: footer;
+    background: gray;
+    height: 10vh;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+footer img{
+    width: 5rem;
+}
+
+/*Queries */
+@media (max-width: 450px) {
+
+    .container {
+    	display: grid;
+    	min-height: 100vh;
+        max-width: 100vw;
+    	justify-content: center;
+    	align-items: center;
+    	margin: 0;
+    	padding: 0;
+    	/* Ändrar till en kolumn för små skärmar */
+    	grid-template-columns:  1fr ;
+    	grid-template-rows: auto 1fr auto;
+    	grid-template-areas:
+    	"navbar"
+    	"main"
+    	"sidebar"
+    	"footer";
+	}
+
+   #Herobild, img {
+        width: 100%; /* Ensure images scale properly */
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    section.omoss {
+        display: block;
+    }
+
+    .container3{ /*container för home.*/
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        grid-template-columns:  1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+    
+        "navbar"
+        "main"
+        "footer";
+    }
+
+    nav ul{
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    #main3{ /*container för kontakt-main.*/
+      grid-template-columns: 1fr;
+    }
+
+/* Detta måste finnas så den inte hamnar i mitten av 4 personer */
+    #kontor { 
+        grid-column: span  1;
+        grid-row: 5 / 5;
+        width: 90%;
+    } 
+
+    aside {
+        text-align: center;
+    }
+   
+}
+
+@media (min-width: 451px) and (max-width: 780px) {
+    
+    section.omoss {
+        display: block;
+    }
+
+ /*Queries för kntaktsida  */
+.main3{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.kontaktinfo-article p{
+    max-width: 45vw;
+    text-overflow: hidden;
+    padding: 2%;
+    margin: auto;
+   
+}
+/*Queries för kontaktside*/
+
+.container {
+    display: grid;
+    min-height: 100vh;
+    max-width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    /* Ändrar till en kolumn för små skärmar */
+    grid-template-columns:  1fr ;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "navbar"
+    "main"
+    "sidebar"
+    "footer";
+}
+
+#Herobild, img {
+    width: 100%; /* Ensure images/videos scale properly */
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+aside {
+    text-align: center;
+}
+
+}
+@media (min-width: 781px) {
+    figure{
+        margin: auto 0;
+        
+    }  
+}
+
+/*Hover effekt och backgrund på den länken man besöker för tillfället*/
+
+
+
+
+/* 
+Jag ändrade namnet på produkter.html till Omoss.html
+ändrade plats på main och main tvås position i css dokumentet
+
+Jag lade till
+class="omoss" på sectionen på Omoss.html för att placera den enskilt i flow-grid.
+I articlesen om oss la ja till ett paragraf Lorem.
+Med Flexbox centrerade jag <H3> & <p>.
+
+Med hjälp av wave så märkte vi att logorna inte hade en alt text, vilket sedan tillades
+
+*/
